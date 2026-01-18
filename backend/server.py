@@ -615,10 +615,4 @@ INFO:     Application startup complete.
 Fetching debug logs for mongodb
 
 tail: cannot open '/var/log/supervisor/mongodb*.log' for reading: No such file or directory
-if __name__ == "__main__":
-    import uvicorn
-    uvicorn.run(
-        "server:app",
-        host="0.0.0.0",
-        port=int(os.environ.get("PORT", 8000))
-    )
+    app = FastAPI()

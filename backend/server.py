@@ -10,7 +10,6 @@ from pydantic import BaseModel, Field
 from typing import List, Optional, Dict, Any
 from datetime import datetime, timedelta
 from bson import ObjectId
-from emergentintegrations.llm.chat import LlmChat, UserMessage
 import random
 
 ROOT_DIR = Path(__file__).parent
@@ -24,10 +23,6 @@ db = client[os.environ['DB_NAME']]
 # Create the main app
 app = FastAPI()
 api_router = APIRouter(prefix=\"/api\")
-
-# Get Emergent LLM key
-EMERGENT_LLM_KEY = os.environ.get('EMERGENT_LLM_KEY')
-
 # Helper function to convert ObjectId to string
 def serialize_doc(doc):
     if doc and \"_id\" in doc:
